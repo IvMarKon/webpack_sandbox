@@ -7,3 +7,4 @@ fA.pushIcon('.container',fA.alignLeft);
 fA.pushIcon('.container',fA.alignRight);
 
 // fontawesome.dom.i2svg();
+console.log("Webpack dev-server-watch test !");

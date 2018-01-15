@@ -2,6 +2,7 @@ const path = require('path');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: {
@@ -21,9 +22,15 @@ module.exports = {
         }]
     },
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './',
+        hot: true
+    },
     plugins: [
         new MinifyPlugin(),
-        new CleanWebpackPlugin(['dist'])
+        new CleanWebpackPlugin(['dist']),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     output: {
         filename: '[name].bundle.js',
